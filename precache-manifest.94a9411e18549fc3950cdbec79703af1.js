@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5a87097fcc44c9b250405367a624737d",
+    "revision": "afe21e40b86cfe882c5616d2711825af",
     "url": "/Quakr-earthquake-map/index.html"
   },
   {
-    "revision": "e3e43e81f423b7e58e16",
-    "url": "/Quakr-earthquake-map/static/css/main.0d2e0640.chunk.css"
+    "revision": "3d3aa0296381aa9fbe15",
+    "url": "/Quakr-earthquake-map/static/css/main.df5cc48c.chunk.css"
   },
   {
     "revision": "084703ffe4b388461ff4",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Quakr-earthquake-map/static/js/2.36d96642.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e3e43e81f423b7e58e16",
-    "url": "/Quakr-earthquake-map/static/js/main.0141b7c4.chunk.js"
+    "revision": "3d3aa0296381aa9fbe15",
+    "url": "/Quakr-earthquake-map/static/js/main.b87b79af.chunk.js"
   },
   {
     "revision": "b1b5832fad3fbc22d527",
