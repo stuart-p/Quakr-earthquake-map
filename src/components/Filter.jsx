@@ -1,30 +1,27 @@
 import React, { Component } from "react";
+import arrow from "../arrow.png";
+import classNames from "classnames";
 
 class Filter extends Component {
   state = {
-    magnitudeFilter: "",
-    timeFilter: null
+    magnitudeFilter: -1,
+    timeFilter: null,
+    selectedTime: 672,
+    filterMenuHidden: false
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+  };
   handleMagnitudeChange = event => {
-    console.log(event.target.value);
     this.setState({ magnitudeFilter: event.target.value });
   };
 
   handleTimeChange = event => {
-    console.log(event.target.value);
-    if (event.target.value === 30) {
-      const now = new Date();
-      now.setMonth(now.getMonth() - 1);
-      const startTime = now.toISOString();
-      console.log(startTime, "30 days log");
-      this.setState({ timeFilter: startTime });
-    } else {
-      const now = new Date();
-      now.setHours(now.getHours() - event.target.value);
-      const startTime = now.toISOString();
-      this.setState({ timeFilter: startTime });
-    }
+    const now = new Date();
+    now.setHours(now.getHours() - event.target.value);
+    const startTime = now.toISOString();
+    this.setState({ timeFilter: startTime, selectedTime: event.target.value });
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -41,78 +38,64 @@ class Filter extends Component {
     }
   }
 
+  toggleFilterVisible = () => {
+    this.setState(currentState => {
+      return { filterMenuHidden: !currentState.filterMenuHidden };
+    });
+  };
   render() {
-    console.log(this.state.magnitudeFilter);
+    const filterMenuClasses = classNames({
+      filter: true,
+      "filter--hidden": this.state.filterMenuHidden
+    });
+    const filterButtonClasses = classNames({
+      filter__hide: true,
+      "filter__hide--menuHidden": this.state.filterMenuHidden
+    });
     return (
-      <div className="filter">
-        <h2>Filters</h2>
-        <form>
-          <h3>Magnitude</h3>
-          <label>
-            <input
-              type="radio"
-              name="magnitude"
-              value={-1}
-              checked={this.state.magnitudeFilter == -1}
-              onChange={this.handleMagnitudeChange}
-            />
-            all
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="magnitude"
-              value={3.5}
-              checked={this.state.magnitudeFilter == 3.5}
-              onChange={this.handleMagnitudeChange}
-            />
-            {">3.5"}
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="magnitude"
-              value={6}
-              checked={this.state.magnitudeFilter == 6}
-              onChange={this.handleMagnitudeChange}
-            />
-            {">6"}
-          </label>
-        </form>
-        <form>
-          <h3>Time</h3>
-          <label>
-            <input
-              type="radio"
-              name="time"
-              value={30}
-              checked={this.state.timeFilter == 30}
-              onChange={this.handleTimeChange}
-            />
-            all
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="time"
-              value={1}
-              checked={this.state.timeFilter == 1}
-              onChange={this.handleTimeChange}
-            />
-            {"last hour"}
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="time"
-              value={24}
-              checked={this.state.timeFilter == 24}
-              onChange={this.handleTimeChange}
-            />
-            {"last 24 hours"}
-          </label>
-        </form>
-      </div>
+      <aside className="filter__container">
+        <button
+          className={filterButtonClasses}
+          onClick={this.toggleFilterVisible}
+        >
+          <img src={arrow} alt="minimise" />
+        </button>
+        <div className={filterMenuClasses}>
+          <h2>Filters</h2>
+          <form onSubmit={this.handleSubmit}>
+            <h3>filter by magnitude</h3>
+            <label>
+              <select
+                name="magSelector"
+                id="magSelector"
+                value={this.state.magnitudeFilter}
+                onChange={this.handleMagnitudeChange}
+              >
+                <option value={-1}>all</option>
+                <option value={2}>greater than 2</option>
+                <option value={4}>greater than 4</option>
+                <option value={6}>greater than 6</option>
+              </select>
+            </label>
+          </form>
+          <form onSubmit={this.handleSubmit}>
+            <h3>filter by time</h3>
+            <label>
+              <select
+                name="timeSelector"
+                id="timeSelector"
+                value={this.state.selectedTime}
+                onChange={this.handleTimeChange}
+              >
+                <option value={672}>all</option>
+                <option value={1}>within last hour</option>
+                <option value={24}>within last 24 hours</option>
+                <option value={168}>within last week</option>
+              </select>
+            </label>
+          </form>
+        </div>
+      </aside>
     );
   }
 }

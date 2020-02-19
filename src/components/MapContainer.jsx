@@ -5,11 +5,21 @@ import { Icon } from "leaflet";
 class MapContainer extends Component {
   render() {
     const newIcon = new Icon({
-      iconUrl: require("../marker-icon-2x-gold.png"),
+      iconUrl: require("../pin.png"),
       iconSize: [20, 30]
     });
     return (
-      <LeafletMap center={[40, 0]} zoom={1.5}>
+      <LeafletMap
+        center={[35, -40]}
+        zoom="3"
+        minZoom="2.5"
+        maxBounds={[
+          [90, 180],
+          [-90, -180]
+        ]}
+        maxBoundsViscosity="0.4"
+        noWrap={true}
+      >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {this.props.earthquakeData.map(quake => {
           return (
