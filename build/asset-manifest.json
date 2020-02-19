@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/quakr/static/css/main.0d2e0640.chunk.css",
+    "main.js": "/quakr/static/js/main.0d8546ca.chunk.js",
+    "main.js.map": "/quakr/static/js/main.0d8546ca.chunk.js.map",
+    "runtime-main.js": "/quakr/static/js/runtime-main.198acfae.js",
+    "runtime-main.js.map": "/quakr/static/js/runtime-main.198acfae.js.map",
+    "static/js/2.36d96642.chunk.js": "/quakr/static/js/2.36d96642.chunk.js",
+    "static/js/2.36d96642.chunk.js.map": "/quakr/static/js/2.36d96642.chunk.js.map",
+    "index.html": "/quakr/index.html",
+    "precache-manifest.439b71569319dc0c31e49c04132b266d.js": "/quakr/precache-manifest.439b71569319dc0c31e49c04132b266d.js",
+    "service-worker.js": "/quakr/service-worker.js",
+    "static/css/main.0d2e0640.chunk.css.map": "/quakr/static/css/main.0d2e0640.chunk.css.map",
+    "static/js/2.36d96642.chunk.js.LICENSE.txt": "/quakr/static/js/2.36d96642.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.198acfae.js",
+    "static/js/2.36d96642.chunk.js",
+    "static/css/main.0d2e0640.chunk.css",
+    "static/js/main.0d8546ca.chunk.js"
+  ]
+}
