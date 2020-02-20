@@ -48,6 +48,35 @@ main {
   margin: auto 10px auto 0;
   justify-self: flex-end;
 }
+.header__a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.3em;
+  font-weight: 900;
+  letter-spacing: 0em;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: white;
+  padding: 5px 5px 5px 5px;
+  margin: 20px 0 0 0px;
+  width: 10rem;
+  background-color: rgb(228, 87, 46);
+  border-radius: 3px;
+  transition: 0.5s ease;
+  box-shadow: 1px 3px 10px 4px rgb(39, 39, 39);
+}
+.header__a:hover {
+  background-color: rgb(205, 217, 222);
+  color: black;
+}
+.header__a:active {
+  background-color: rgb(104, 144, 160);
+}
 
 .filter {
   z-index: 2;
@@ -104,6 +133,7 @@ main {
 }
 .filter__hide--menuHidden {
   transform: rotate(0);
+  left: 0;
 }
 .filter--hidden {
   width: 0;
@@ -169,4 +199,19 @@ main {
 .leaflet-popup-tip {
   width: 0;
   height: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .header__h2 {
+    font-size: 12px;
+  }
+  .header__a {
+    margin: 50px 0 0 0;
+  }
+  .filter__container {
+    grid-column: 1/12;
+  }
+  .filter__hide--menuHidden {
+    left: 0;
+  }
 }
